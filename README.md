@@ -12,6 +12,7 @@ The project will be updated as often as possible.
   2. Average - Example: Swordsman
   3. Heavy - Example: Mortar
 * Tower system
+* Bot as an enemy
 * Traps 
 * Pumping
 * Code review and optimization
