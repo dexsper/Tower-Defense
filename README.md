@@ -1,13 +1,16 @@
-A test project in the tower defense genre made for a portfolio. The project will be updated as often as possible.
+# Tower Defense
 
+## What kind of project
+A test project in the tower defense genre made for a portfolio. 
+The project will be updated as often as possible.
 
-⋅⋅* What is planned to be added:
+## What is planned to be added:
 
-* ~~Map~~
+* Map ✔
 * Basic units:
   1. Light - Example: Goblin
   2. Average - Example: Swordsman
-  3. Heavy - Example: mortar
+  3. Heavy - Example: Mortar
 * Tower system
 * Traps 
 * Pumping
@@ -15,5 +18,5 @@ A test project in the tower defense genre made for a portfolio. The project will
 
 
 
-Used engine: Unity.
-All the code is completely written in C#.
+*Used engine: Unity.
+All the code is completely written in C#.*
