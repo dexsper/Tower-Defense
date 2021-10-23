@@ -8,12 +8,8 @@ public enum Team
     Red
 }
 
-public class Base : MonoBehaviour, IDamageble
+public class Base : Entity
 {
-
-    [SerializeField]
-    private float health = 100;
-
     [SerializeField]
     private Team team;
 
@@ -28,32 +24,34 @@ public class Base : MonoBehaviour, IDamageble
     public float Money => money;
     public Team Team => team;
 
-    EnemySpawner spawner;
-    public bool IsDeath() => health <= 0f;
+    [SerializeField]
+    private LayerMask enemyLayer;
 
-    private void Start()
-    {
-        spawner = GetComponent<EnemySpawner>();
+    public LayerMask EnemyLayer => enemyLayer;
 
-    }
+    HealthBar bar;
+
     [ContextMenu("Test Spawn")]
     public void TestSpawn()
     {
-        spawner.Spawn(0, team);
+        EnemySpawner.Singletion.Spawn(0, team);
     }
 
-    public void TakeDamage(float damage)
+    protected override void InitializeComponents()
+    {
+        maxHealth = health;
+        bar = GetComponent<HealthBar>();
+    }
+
+    public override void TakeDamage(float damage)
     {
         health -= damage;
 
-        if(health <= 0 )
+        bar.UpdateBar(health, maxHealth);
+
+        if(IsDeath())
         {
             Debug.Log(team + " base was destroyed");
         }
-    }
-
-    public GameObject GetObject()
-    {
-        return gameObject;
     }
 }

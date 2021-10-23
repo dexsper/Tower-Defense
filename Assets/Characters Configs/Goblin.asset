@@ -15,5 +15,6 @@ MonoBehaviour:
   Speed: 2
   Health: 50
   Price: 10
+  Damage: 15
   ChaseDistance: 5
-  AttackDistance: 1
+  AttackDistance: 1.3

@@ -29,7 +29,7 @@ public class CharacterAttackState : State
             e.stateMachine.ChangeState(StateId.Run);
         }
 
-        else if (Vector3.Distance(e.transform.position, e.Target.GetObject().transform.position) > e.Config.AttackDistance)
+        else if (Vector3.Distance(e.transform.position, e.Target.transform.position) > e.Config.AttackDistance)
         {
             e.stateMachine.ChangeState(StateId.Chase);
         }

@@ -27,17 +27,24 @@ class CharacterRunState : State
             e.stateMachine.ChangeState(StateId.Chase);
         }
 
+
         if(e.EnemyBase != null)
         {
-            e.transform.position = Vector3.MoveTowards(e.transform.position, e.EnemyBase.transform.position, e.Config.Speed * Time.deltaTime);
+            if (e.EnemyBase.IsDeath())
+            {
+                e.SetEnemyBase(null);
+                return;
+            }
+
+            Vector3 targetPos = e.EnemyBase.transform.position;
+            targetPos.z = e.transform.position.z;
+
+            e.transform.position = Vector3.MoveTowards(e.transform.position, targetPos, e.Config.Speed * Time.deltaTime);
             e.transform.LookAt(e.EnemyBase.transform);
 
-            Collider[] colliders = Physics.OverlapSphere(e.transform.position, e.Config.ChaseDistance, e.EnemyLayer);
+            Entity target = e.Search.FindTarget(e.transform.position, e.Config.ChaseDistance, e.EnemyLayer);
 
-            IDamageble target = colliders.OrderBy(c => Vector3.Distance(e.transform.position, c.transform.position))
-                .FirstOrDefault()?.GetComponent<IDamageble>();
-
-            if(target != null)
+            if (target != null)
             {
                 e.SetTarget(target);
 

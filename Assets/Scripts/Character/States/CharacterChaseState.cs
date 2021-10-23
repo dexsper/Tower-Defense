@@ -18,8 +18,6 @@ class CharacterChaseState: State
         return StateId.Chase;
     }
 
-    
-
     public void Update(BaseEnemy e)
     {
         if(e.Target == null)
@@ -28,7 +26,7 @@ class CharacterChaseState: State
         }
         else
         {
-            float distance = Vector3.Distance(e.transform.position, e.Target.GetObject().transform.position);
+            float distance = Vector3.Distance(e.transform.position, e.Target.transform.position);
 
             if (distance < e.Config.AttackDistance)
             {
@@ -40,10 +38,14 @@ class CharacterChaseState: State
                 {
                     e.SetTarget(null);
                     e.stateMachine.ChangeState(StateId.Run);
+                    return;
                 }
 
-                e.transform.position = Vector3.MoveTowards(e.transform.position, e.Target.GetObject().transform.position, e.Config.Speed * Time.deltaTime);
-                e.transform.LookAt(e.Target.GetObject().transform);
+                if (e.Target)
+                {
+                    e.transform.position = Vector3.MoveTowards(e.transform.position, e.Target.transform.position, e.Config.Speed * Time.deltaTime);
+                    e.transform.LookAt(e.Target.transform);
+                }
             }
         }
     }

@@ -39,8 +39,6 @@ public class StateMachine
 
         currentState = newState;
 
-        Debug.Log("Enemy " + enemy.name + " change state to " + newState.ToString());
-
         GetState(currentState)?.Enter(enemy);
 
     }
