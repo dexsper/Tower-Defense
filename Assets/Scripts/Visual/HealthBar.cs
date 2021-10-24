@@ -8,9 +8,19 @@ public class HealthBar : MonoBehaviour
 
     Camera cam;
 
+    private Entity entity;
+
+    
+
     private void Start()
     {
         cam = Camera.main;
+    }
+
+    public void Init(Entity entity)
+    {
+        this.entity = entity;
+        entity.OnHealthChanged += UpdateBar;
     }
 
     public void UpdateBar(float health, float maxHealth)
@@ -21,7 +31,13 @@ public class HealthBar : MonoBehaviour
 
     private void Update()
     {
-        if(slider)
-            slider.transform.LookAt(cam.transform);
+
+        if (entity)
+            transform.position = cam.WorldToScreenPoint(entity.transform.position + entity.HealthBarOffset);
+    }
+
+    private void OnDestroy()
+    {
+        entity.OnHealthChanged -= UpdateBar;
     }
 }

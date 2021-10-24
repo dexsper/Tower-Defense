@@ -35,20 +35,6 @@ public abstract class BaseEnemy : Entity
 
     public LayerMask EnemyLayer => enemyLayer;
 
-    HealthBar bar;
-
-
-    public override void TakeDamage(float damage)
-    {
-        health -= damage;
-
-        bar.UpdateBar(health, maxHealth);
-
-        if (health <= 0)
-        {
-            stateMachine.ChangeState(StateId.Death);
-        }
-    }
 
     public virtual bool HasTarget()
     {
@@ -67,12 +53,11 @@ public abstract class BaseEnemy : Entity
     
     protected override void InitializeComponents()
     {
-        anim = GetComponent<Animator>();
-        bar = GetComponent<HealthBar>();
-        Search = GetComponent<EnemySearch>();
+        base.InitializeComponents();
 
-        maxHealth = config.Health;
-        health = maxHealth;
+        anim = GetComponent<Animator>();
+        
+        Search = GetComponent<EnemySearch>();
 
         stateMachine = new StateMachine(this);
         stateMachine.RegisterState(new CharacterIdleState());
@@ -90,6 +75,13 @@ public abstract class BaseEnemy : Entity
         this.enemyLayer = enemyLayer;
 
         gameObject.layer = LayerMask.NameToLayer(team.ToString());
+
+        OnDeath += HandleDeath;
+    }
+
+    private void HandleDeath()
+    {
+        stateMachine.ChangeState(StateId.Death);
     }
 
     public virtual void OnAnimationIvent(string eventName)
@@ -98,7 +90,7 @@ public abstract class BaseEnemy : Entity
         {
             case "Attack":
                 {
-                    target?.TakeDamage(config.Damage);
+                    target?.ModifyHealth(config.Damage);
                     break;
                 }
             case "Death":

@@ -29,29 +29,13 @@ public class Base : Entity
 
     public LayerMask EnemyLayer => enemyLayer;
 
-    HealthBar bar;
-
-    [ContextMenu("Test Spawn")]
-    public void TestSpawn()
+    private void Start()
     {
-        EnemySpawner.Singletion.Spawn(0, team);
+        OnDeath += DeathHandle;
     }
 
-    protected override void InitializeComponents()
+    private void DeathHandle()
     {
-        maxHealth = health;
-        bar = GetComponent<HealthBar>();
-    }
-
-    public override void TakeDamage(float damage)
-    {
-        health -= damage;
-
-        bar.UpdateBar(health, maxHealth);
-
-        if(IsDeath())
-        {
-            Debug.Log(team + " base was destroyed");
-        }
+        Debug.Log($"The base of the {team} was destroyed");
     }
 }
