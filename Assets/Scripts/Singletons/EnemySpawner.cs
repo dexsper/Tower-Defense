@@ -8,8 +8,7 @@ public class EnemySpawner : MonoBehaviour
 {
     public static EnemySpawner Singletion;
 
-    [SerializeField]
-    private List<BaseEnemy> enemies;
+    private List<BaseEnemy> enemies = new List<BaseEnemy>();
 
     private Base[] bases;
 
@@ -19,7 +18,6 @@ public class EnemySpawner : MonoBehaviour
         if (Singletion == null)
             Singletion = this;
         else Destroy(this);
-
     }
 
     private void Start()
@@ -33,14 +31,18 @@ public class EnemySpawner : MonoBehaviour
         Base ourBase = bases.Where(b => b.Team == team).First();
         Base enemyBase = bases.Where(b => b.Team != team).First();
 
-        Vector3 spawnPosition = ourBase.SpawnPoint.position;
-        spawnPosition.z += Random.Range(-1.5f, 1.5f);
+        if (ourBase.TakeMoney(e.Config.Price))
+        {
 
-        BaseEnemy enemy = Instantiate(e, spawnPosition, Quaternion.identity);
-        
-        enemy.Init(team, enemyBase, ourBase.EnemyLayer);
+            Vector3 spawnPosition = ourBase.SpawnPoint.position;
+            spawnPosition.z += Random.Range(-1.5f, 1.5f);
 
-        enemies.Add(enemy);
+            BaseEnemy enemy = Instantiate(e, spawnPosition, Quaternion.identity);
+
+            enemy.Init(team, enemyBase, ourBase.EnemyLayer);
+
+            enemies.Add(enemy);
+        }
 
     }
 
