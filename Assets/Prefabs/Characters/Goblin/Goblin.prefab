@@ -536,6 +536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 0
+  healthBarOffset: {x: 0, y: 1.5, z: 0}
   initialState: 2
   config: {fileID: 11400000, guid: cf0d225395712da409145aa8f9b0ac6e, type: 2}
   attackZoneColor: {r: 1, g: 0.31818253, b: 0.09803921, a: 0.16862746}

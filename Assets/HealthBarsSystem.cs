@@ -10,17 +10,24 @@ public class HealthBarsSystem : MonoBehaviour
     [SerializeField]
     private HealthBar healthBarPrefab;
 
+    [SerializeField]
+    private Transform healthBarsParent;
+
     private void Awake()
     {
-        Entity.OnEntityCreate += CreateHealthBar;
         Entity.OnEntityDestroy += RemoveHealthBar;
+        Entity.OnEntityCreate += CreateHealthBar;
     }
 
     private void RemoveHealthBar(Entity entity)
     {
-        if (!healthBars.ContainsKey(entity))
+        if (healthBars.ContainsKey(entity))
         {
-            Destroy(healthBars[entity].gameObject);
+            var healthBar = healthBars[entity];
+
+            if (healthBar)
+                Destroy(healthBar.gameObject);
+
             healthBars.Remove(entity);
         }
     }
@@ -29,7 +36,7 @@ public class HealthBarsSystem : MonoBehaviour
     {
         if(!healthBars.ContainsKey(entity))
         {
-            var healthBar = Instantiate(healthBarPrefab, transform);
+            var healthBar = Instantiate(healthBarPrefab, healthBarsParent);
             healthBars.Add(entity, healthBar);
             healthBar.Init(entity);
         }

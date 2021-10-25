@@ -7,11 +7,13 @@ public class EnemyConfig : ScriptableObject
 
     public float Health = 50f;
 
-    public float Price = 10f;
+    public int Price = 10;
 
     public float Damage = 15f;
 
     public float ChaseDistance = 10f;
 
     public float AttackDistance = 2f;
+
+    public Sprite Avatar;
 }
