@@ -20598,7 +20598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 853d2c34b9becdb43abee2189bf3ccac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 2000
   healthBarOffset: {x: -6, y: 7, z: 0}
   team: 0
   startMoney: 100
@@ -22941,7 +22941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 853d2c34b9becdb43abee2189bf3ccac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 2000
   healthBarOffset: {x: 4.3, y: 7, z: 0}
   team: 1
   startMoney: 100
@@ -25181,17 +25181,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4310614304489658, guid: 5cbae0602ce9acf41a98fda3a353569a, type: 3}
   m_PrefabInstance: {fileID: 1773258704}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1773472293 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2189430498946455775, guid: dec9802d2e2a0a644b23c0e66d367d48, type: 3}
-  m_PrefabInstance: {fileID: 2189430499413339052}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1776336891
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29050,10 +29039,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 2189430497696449214, guid: dec9802d2e2a0a644b23c0e66d367d48, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 2189430497696449215, guid: dec9802d2e2a0a644b23c0e66d367d48, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -29146,16 +29131,8 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2189430497727588756, guid: dec9802d2e2a0a644b23c0e66d367d48, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2189430498673908678, guid: dec9802d2e2a0a644b23c0e66d367d48, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2189430498673908678, guid: dec9802d2e2a0a644b23c0e66d367d48, type: 3}
-      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2189430499121967530, guid: dec9802d2e2a0a644b23c0e66d367d48, type: 3}
@@ -29170,9 +29147,5 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3728180653379074787, guid: dec9802d2e2a0a644b23c0e66d367d48, type: 3}
-      propertyPath: moneyText
-      value: 
-      objectReference: {fileID: 1773472293}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dec9802d2e2a0a644b23c0e66d367d48, type: 3}

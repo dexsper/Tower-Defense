@@ -59,7 +59,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -159,6 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9885e52bff9cd0f42a37d73a01aecb37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneyText: {fileID: 2189430498946455775}
 --- !u!1001 &1864142293795423978
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -278,6 +279,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shop
       objectReference: {fileID: 0}
+    - target: {fileID: 557506247129239463, guid: 5ddaed99ee18dfe43838d285c94589b5, type: 3}
+      propertyPath: enemies.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 557506247129239463, guid: 5ddaed99ee18dfe43838d285c94589b5, type: 3}
+      propertyPath: enemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 2379744331663169434, guid: 5b5b1958cdf88ce49989e326859b9572, type: 3}
     - target: {fileID: 557506247610824512, guid: 5ddaed99ee18dfe43838d285c94589b5, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -420,3 +429,14 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5668835928780108044, guid: eb89dc2c41034784b9ec1061fe7038ce, type: 3}
   m_PrefabInstance: {fileID: 5821372346808107795}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2189430498946455775 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5668835929483877324, guid: eb89dc2c41034784b9ec1061fe7038ce, type: 3}
+  m_PrefabInstance: {fileID: 5821372346808107795}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
