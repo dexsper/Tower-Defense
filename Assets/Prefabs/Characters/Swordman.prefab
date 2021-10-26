@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 4379682114479976481}
   - component: {fileID: 2379744331663169434}
   - component: {fileID: 6055411504683490349}
+  - component: {fileID: 7117122565380202034}
   m_Layer: 0
   m_Name: Swordman
   m_TagString: Untagged
@@ -258,8 +259,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f93a6ee7e7ce905489ea11b36c959f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  healthBarOffset: {x: 0, y: 1.8, z: 0}
   initialState: 2
   config: {fileID: 11400000, guid: 5dd44bfcea3e52746a76b3a44e70164e, type: 2}
   attackZoneColor: {r: 1, g: 0.31818253, b: 0.09803921, a: 0.16862746}
@@ -285,6 +284,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7117122565380202034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022148595836406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15f7ef3f7520e6049bb315b46d708ab8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBarOffset: {x: 0, y: 1.5, z: 0}
+  maxHealth: 150
 --- !u!1 &1087546517206048
 GameObject:
   m_ObjectHideFlags: 0

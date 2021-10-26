@@ -19,7 +19,7 @@ public class CharacterAttackState : State
 
     public void Update(BaseEnemy e)
     {
-        if(e.Target.IsDeath())
+        if(e.Target.Health.IsDeath())
         {
             e.SetTarget(null);
         }

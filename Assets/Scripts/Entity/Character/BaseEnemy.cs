@@ -76,7 +76,7 @@ public abstract class BaseEnemy : Entity
 
         gameObject.layer = LayerMask.NameToLayer(team.ToString());
 
-        OnDeath += HandleDeath;
+        Health.OnDeath += HandleDeath;
     }
 
     private void HandleDeath()
@@ -90,7 +90,7 @@ public abstract class BaseEnemy : Entity
         {
             case "Attack":
                 {
-                    target?.ModifyHealth(config.Damage);
+                    target?.Health.Damage(config.Damage);
                     break;
                 }
             case "Death":

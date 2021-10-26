@@ -36,14 +36,7 @@ public class Base : Entity
     {
         base.InitializeComponents();
 
-        OnDeath += DeathHandle;
-
         AddMoney(startMoney);
-    }
-
-    private void DeathHandle()
-    {
-        Debug.Log($"The base of the {team} was destroyed");
     }
 
     public void AddMoney(int amount)

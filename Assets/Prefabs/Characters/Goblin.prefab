@@ -451,6 +451,7 @@ GameObject:
   - component: {fileID: 9134027547110041991}
   - component: {fileID: 4166827686024305763}
   - component: {fileID: 8880987214521330026}
+  - component: {fileID: 4081324667343378395}
   m_Layer: 0
   m_Name: Goblin
   m_TagString: Untagged
@@ -535,8 +536,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f93a6ee7e7ce905489ea11b36c959f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  healthBarOffset: {x: 0, y: 1.5, z: 0}
   initialState: 2
   config: {fileID: 11400000, guid: cf0d225395712da409145aa8f9b0ac6e, type: 2}
   attackZoneColor: {r: 1, g: 0.31818253, b: 0.09803921, a: 0.16862746}
@@ -555,6 +554,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2788906a2c8f1684abe8a3cc0126ec60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4081324667343378395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258991314359982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15f7ef3f7520e6049bb315b46d708ab8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBarOffset: {x: 0, y: 1, z: 0}
+  maxHealth: 50
 --- !u!1 &1300070071406548
 GameObject:
   m_ObjectHideFlags: 0

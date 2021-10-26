@@ -30,7 +30,7 @@ class CharacterRunState : State
 
         if(e.EnemyBase != null)
         {
-            if (e.EnemyBase.IsDeath())
+            if (e.EnemyBase.Health.IsDeath())
             {
                 e.SetEnemyBase(null);
                 return;

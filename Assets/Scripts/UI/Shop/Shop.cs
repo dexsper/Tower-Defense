@@ -19,8 +19,8 @@ public class Shop : MonoBehaviour
         {
             foreach(var enemy in enemies)
             {
-                var button = Instantiate(shopItemPrefab, content);
-                button.Init(enemy.Config.Price.ToString(), enemy.Config.Avatar, () => EnemySpawner.Singletion.Spawn(enemy, Team.Blue));
+                var item = Instantiate(shopItemPrefab, content);
+                item.Init(enemy.Config.Price.ToString(), enemy.Config.Avatar, () => EnemySpawner.Singletion.Spawn(enemy, Team.Blue));
             }
         }
     }

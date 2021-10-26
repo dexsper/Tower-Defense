@@ -20,7 +20,7 @@ public class HealthBar : MonoBehaviour
     public void Init(Entity entity)
     {
         this.entity = entity;
-        entity.OnHealthChanged += UpdateBar;
+        entity.Health.OnHealthChanged += UpdateBar;
         gameObject.SetActive(true);
         UpdatePosition();
     }
@@ -39,11 +39,11 @@ public class HealthBar : MonoBehaviour
     private void UpdatePosition()
     {
         if (entity)
-            transform.position = cam.WorldToScreenPoint(entity.transform.position + entity.HealthBarOffset);
+            transform.position = cam.WorldToScreenPoint(entity.transform.position + entity.Health.HealthBarOffset);
     }
 
     private void OnDestroy()
     {
-        entity.OnHealthChanged -= UpdateBar;
+        entity.Health.OnHealthChanged -= UpdateBar;
     }
 }
