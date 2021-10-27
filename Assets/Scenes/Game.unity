@@ -26438,6 +26438,14 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2189430499720972621, guid: dec9802d2e2a0a644b23c0e66d367d48, type: 3}
+      propertyPath: enemies.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189430499720972621, guid: dec9802d2e2a0a644b23c0e66d367d48, type: 3}
+      propertyPath: enemies.Array.data[2]
+      value: 
+      objectReference: {fileID: 881375990878871885, guid: fdb8f3cc6af59fc48a9b27f3aa75a6b1, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dec9802d2e2a0a644b23c0e66d367d48, type: 3}
 --- !u!1001 &3959792904881529848

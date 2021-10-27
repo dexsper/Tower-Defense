@@ -30,12 +30,12 @@ public class StateMachine
 
     public void Update()
     {
-        GetState(currentState)?.Update(enemy);
+        GetState(currentState)?.Update();
     }
 
     public void ChangeState(StateId newState)
     {
-        GetState(currentState)?.Exit(enemy);
+        GetState(currentState)?.Exit();
 
         currentState = newState;
 

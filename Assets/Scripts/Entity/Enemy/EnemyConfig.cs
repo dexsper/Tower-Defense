@@ -5,8 +5,6 @@ public class EnemyConfig : ScriptableObject
 {
     public float Speed = 2f;
 
-    public float Health = 50f;
-
     public int Price = 10;
 
     public float Damage = 15f;
