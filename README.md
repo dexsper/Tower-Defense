@@ -10,7 +10,7 @@ The project will be updated as often as possible.
 * Basic units:
   1. Light - Example: Goblin ✔
   2. Average - Example: Swordsman ✔
-  3. Heavy - Example: Mortar
+  3. Heavy - Example: Mortar ✔
 * Tower system 
 * Bot as an enemy
 * Traps 
