@@ -3,8 +3,8 @@
     StateId GetId();
 
     void Enter(BaseEnemy e);
-    void Update(BaseEnemy e);
-    void Exit(BaseEnemy e);
+    void Update();
+    void Exit();
 }
 
 public enum StateId

@@ -1,34 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!54 &796879120
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 863191639}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!135 &796879119
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 863191639}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.47707975
-  m_Center: {x: 0.0000009983778, y: 0, z: -0.0000018030405}
 --- !u!1 &1089033057443518
 GameObject:
   m_ObjectHideFlags: 0
@@ -40,7 +11,6 @@ GameObject:
   - component: {fileID: 4210233640486434}
   - component: {fileID: 33966987273585484}
   - component: {fileID: 23341837876698470}
-  - component: {fileID: 114687849924994654}
   m_Layer: 0
   m_Name: ForestCatapultWheelRL
   m_TagString: Untagged
@@ -112,21 +82,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &114687849924994654
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1089033057443518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36c0437b056074a4fa083c93ffe4027d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotateDirection: {x: -1, y: 0, z: 0}
-  rotateSpeed: 40
-  isRotating: 0
 --- !u!1 &1368493319012508
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,6 +91,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4535023515062960}
+  - component: {fileID: 1723142924}
+  - component: {fileID: 1723142925}
+  - component: {fileID: -1915937466785721631}
+  - component: {fileID: 1723142922}
+  - component: {fileID: 1723142923}
+  - component: {fileID: 631618500215845915}
   m_Layer: 0
   m_Name: ForestCatapult_Blue
   m_TagString: Untagged
@@ -157,10 +118,101 @@ Transform:
   - {fileID: 4671183827430004}
   - {fileID: 4670754590690618}
   - {fileID: 4080332873677416}
-  - {fileID: 863297143}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 60.833004, z: 0}
+--- !u!54 &1723142924
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368493319012508}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!65 &1723142925
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368493319012508}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1, z: 2.4}
+  m_Center: {x: 0, y: 0, z: 0.1}
+--- !u!95 &-1915937466785721631
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368493319012508}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e2806c95795f3af409771b1e7b4f5af7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1723142922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368493319012508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15f7ef3f7520e6049bb315b46d708ab8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBarOffset: {x: 0, y: 1.7, z: 0}
+  maxHealth: 100
+--- !u!114 &1723142923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368493319012508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2788906a2c8f1684abe8a3cc0126ec60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &631618500215845915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368493319012508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e8c105fc6334414880dfe54709edd84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialState: 3
+  config: {fileID: 11400000, guid: c3da464022fe44a43bcc48ea086a7250, type: 2}
+  attackZoneColor: {r: 1, g: 0.31764707, b: 0.09803922, a: 0.16862746}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1482438998348108
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,8 +224,6 @@ GameObject:
   - component: {fileID: 4292602859152606}
   - component: {fileID: 33280530633490030}
   - component: {fileID: 23326826098946182}
-  - component: {fileID: 1545322076}
-  - component: {fileID: 1545322075}
   m_Layer: 0
   m_Name: ForestCatapultArm
   m_TagString: Untagged
@@ -245,36 +295,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!54 &1545322076
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1482438998348108}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!64 &1545322075
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1482438998348108}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 40ae94ff29e3cc14684b05ba0fd90f05, type: 3}
 --- !u!1 &1485183291047952
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,7 +306,6 @@ GameObject:
   - component: {fileID: 4071663985366204}
   - component: {fileID: 33916173702882888}
   - component: {fileID: 23474477105701500}
-  - component: {fileID: 114073191808115548}
   m_Layer: 0
   m_Name: ForestCatapultWheelFL
   m_TagString: Untagged
@@ -358,21 +377,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &114073191808115548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1485183291047952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36c0437b056074a4fa083c93ffe4027d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotateDirection: {x: -1, y: 0, z: 0}
-  rotateSpeed: 40
-  isRotating: 0
 --- !u!1 &1522072182415554
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,7 +388,6 @@ GameObject:
   - component: {fileID: 4348841575457284}
   - component: {fileID: 33916793125513432}
   - component: {fileID: 23477447430040524}
-  - component: {fileID: 114024386456165752}
   m_Layer: 0
   m_Name: ForestCatapultWheelRR
   m_TagString: Untagged
@@ -456,21 +459,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &114024386456165752
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1522072182415554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36c0437b056074a4fa083c93ffe4027d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotateDirection: {x: 1, y: 0, z: 0}
-  rotateSpeed: 40
-  isRotating: 0
 --- !u!1 &1528351437569502
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,7 +504,6 @@ GameObject:
   - component: {fileID: 4724881274505682}
   - component: {fileID: 33076857091640358}
   - component: {fileID: 23252818398111340}
-  - component: {fileID: 114722696912306100}
   m_Layer: 0
   m_Name: ForestCatapultWheelFR
   m_TagString: Untagged
@@ -588,21 +575,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &114722696912306100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1595457054707302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36c0437b056074a4fa083c93ffe4027d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotateDirection: {x: 1, y: 0, z: 0}
-  rotateSpeed: 40
-  isRotating: 0
 --- !u!1 &1602130325756856
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,74 +754,3 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1001 &863159543
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 4535023515062960}
-    m_Modifications:
-    - target: {fileID: 100000, guid: 18a61d73650d23046b60f8a548888c12, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 18a61d73650d23046b60f8a548888c12, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 18a61d73650d23046b60f8a548888c12, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 18a61d73650d23046b60f8a548888c12, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 18a61d73650d23046b60f8a548888c12, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 18a61d73650d23046b60f8a548888c12, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.04639551
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 18a61d73650d23046b60f8a548888c12, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.94699955
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 18a61d73650d23046b60f8a548888c12, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.87309647
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 18a61d73650d23046b60f8a548888c12, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.86236906
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 18a61d73650d23046b60f8a548888c12, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 18a61d73650d23046b60f8a548888c12, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.50628024
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 18a61d73650d23046b60f8a548888c12, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: 18a61d73650d23046b60f8a548888c12, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f731a2ae89bef7a47a008811dfbd4680, type: 2}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 18a61d73650d23046b60f8a548888c12, type: 3}
---- !u!1 &863191639 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 18a61d73650d23046b60f8a548888c12, type: 3}
-  m_PrefabInstance: {fileID: 863159543}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &863297143 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400000, guid: 18a61d73650d23046b60f8a548888c12, type: 3}
-  m_PrefabInstance: {fileID: 863159543}
-  m_PrefabAsset: {fileID: 0}
