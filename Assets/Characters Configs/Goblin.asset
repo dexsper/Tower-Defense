@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd45815cdd906b04f99ef6858e5f62af, type: 3}
   m_Name: Goblin
   m_EditorClassIdentifier: 
-  Speed: 3
-  Health: 100
+  Speed: 2.6
   Price: 20
   Damage: 30
   ChaseDistance: 5
-  AttackDistance: 1
+  AttackDistance: 2.2
   Avatar: {fileID: 21300000, guid: 9c748aa372a2c8d4f8a9b707c12f9b24, type: 3}

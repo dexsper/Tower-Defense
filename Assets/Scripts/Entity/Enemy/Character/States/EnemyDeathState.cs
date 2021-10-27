@@ -7,9 +7,9 @@ class EnemyDeathState : State
     {
         enemy = e;
 
-        e.Anim.SetTrigger("Death");
+        enemy.Anim.SetTrigger("Death");
 
-        e.animationEvents.OnAnimationEvent += HandleDeathEvent;
+        enemy.animationEvents.OnAnimationEvent += HandleDeathEvent;
     }
 
     private void HandleDeathEvent(string name)

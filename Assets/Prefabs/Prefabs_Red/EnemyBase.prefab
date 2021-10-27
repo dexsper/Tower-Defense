@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 7943745570995191739}
   - component: {fileID: 7943745570995191737}
   - component: {fileID: 7943745570995191736}
+  - component: {fileID: 1436008296}
   m_Layer: 7
   m_Name: EnemyBase
   m_TagString: Base
@@ -56,7 +57,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7943745570995191685}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 25.75, y: 1, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -112,8 +113,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15f7ef3f7520e6049bb315b46d708ab8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBarOffset: {x: 0, y: 0, z: 0}
+  healthBarOffset: {x: 4.5, y: 6, z: 0}
   maxHealth: 1500
+--- !u!114 &1436008296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7943745570995191685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 555757e0f2a3bbc4db418fd2c1110fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: 1
+  enemies:
+  - {fileID: 4166827686024305763, guid: 3749b9edee740c44ea7455a4fa1b7382, type: 3}
+  - {fileID: 4166827686024305763, guid: 3749b9edee740c44ea7455a4fa1b7382, type: 3}
+  - {fileID: 4166827686024305763, guid: 3749b9edee740c44ea7455a4fa1b7382, type: 3}
+  delay: 1.5
 --- !u!1001 &7943745570424567014
 PrefabInstance:
   m_ObjectHideFlags: 0
