@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
 
     private List<BaseEnemy> enemies = new List<BaseEnemy>();
 
+    [SerializeField]
     private Base[] bases;
 
 
@@ -18,11 +19,6 @@ public class EnemySpawner : MonoBehaviour
         if (Singletion == null)
             Singletion = this;
         else Destroy(this);
-    }
-
-    private void Start()
-    {
-        bases = FindObjectsOfType<Base>();
     }
 
 
@@ -35,7 +31,6 @@ public class EnemySpawner : MonoBehaviour
         {
 
             Vector3 spawnPosition = ourBase.SpawnPoint.position;
-            spawnPosition.z += Random.Range(-1.5f, 1.5f);
 
             BaseEnemy enemy = Instantiate(e, spawnPosition, Quaternion.identity);
 

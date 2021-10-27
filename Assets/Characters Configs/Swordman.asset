@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Swordman
   m_EditorClassIdentifier: 
   Speed: 1.5
-  Health: 150
   Price: 50
   Damage: 60
   ChaseDistance: 3
-  AttackDistance: 1
+  AttackDistance: 2.2
   Avatar: {fileID: 21300000, guid: 80d8082399291724d8bacc4c42553e0a, type: 3}

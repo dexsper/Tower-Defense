@@ -9,8 +9,8 @@ public class EnemyAttackState : State
     {
         enemy = e;
 
-        e.Anim.SetBool("Attack", true);
-        e.animationEvents.OnAnimationEvent += HandleAttackEvent;
+        enemy.Anim.SetBool("Attack", true);
+        enemy.animationEvents.OnAnimationEvent += HandleAttackEvent;
     }
 
     private void HandleAttackEvent(string name)
