@@ -22,6 +22,7 @@ class EnemyDeathState : State
 
     public void Exit()
     {
+        enemy.animationEvents.OnAnimationEvent -= HandleDeathEvent;
     }
 
     public StateId GetId()

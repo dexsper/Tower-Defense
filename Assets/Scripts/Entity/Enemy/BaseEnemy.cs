@@ -83,6 +83,11 @@ public abstract class BaseEnemy : Entity
     private void Update()
     {
         stateMachine.Update();
+
+        if(target == null && stateMachine.currentState == StateId.Attack)
+        {
+            stateMachine.ChangeState(StateId.Run);
+        }
     }
 
     protected virtual void OnDrawGizmos()

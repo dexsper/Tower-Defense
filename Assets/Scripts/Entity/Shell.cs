@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class Shell : MonoBehaviour
 {
-	Vector3 launchPoint, targetPoint, launchVelocity;
+	private Vector3 launchPoint, targetPoint, launchVelocity;
 
-	bool initialized;
+	private bool initialized;
 
-	public void Initialize(Vector3 launchPoint, Vector3 targetPoint, Vector3 launchVelocity)
+	private float damage;
+
+	private int layer;
+
+	public void Initialize(Vector3 launchPoint, Vector3 targetPoint, Vector3 launchVelocity, float damage, int layer)
 	{
 		this.launchPoint = launchPoint;
 		this.targetPoint = targetPoint;
 		this.launchVelocity = launchVelocity;
+		this.layer = layer;
+		this.damage = damage;
 
 		initialized = true;
 	}
@@ -20,7 +26,7 @@ public class Shell : MonoBehaviour
 	float age;
 
 	private void Update()
-    {
+	{
 		if (initialized)
 		{
 			age += Time.deltaTime;
@@ -33,5 +39,16 @@ public class Shell : MonoBehaviour
 
 			transform.localPosition = p;
 		}
+	}
+
+
+	private void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.layer == layer)
+		{
+			other.GetComponent<Entity>().Health.Damage(damage);
+		}
+
+		Destroy(gameObject);
 	}
 }

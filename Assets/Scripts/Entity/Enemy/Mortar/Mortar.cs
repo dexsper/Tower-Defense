@@ -75,7 +75,7 @@ public class Mortar : BaseEnemy
         yield return new WaitForSeconds(duration / 2);
 
         Shell shell = Instantiate(shellPrefab, mortar.transform.position, Quaternion.identity);
-        shell.Initialize(mortar.position, target.transform.position, CalculateTrajectory(mortar.position, target.transform.position));
+        shell.Initialize(mortar.position, target.transform.position, CalculateTrajectory(mortar.position, target.transform.position), config.Damage, target.gameObject.layer);
 
         yield return new WaitForSeconds(duration / 2);
 

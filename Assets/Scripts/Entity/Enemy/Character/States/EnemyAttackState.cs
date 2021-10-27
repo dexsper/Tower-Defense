@@ -24,6 +24,7 @@ public class EnemyAttackState : State
     public void Exit()
     {
         enemy.Anim.SetBool("Attack", false);
+        enemy.animationEvents.OnAnimationEvent -= HandleAttackEvent;
     }
 
     public StateId GetId()
@@ -33,13 +34,14 @@ public class EnemyAttackState : State
 
     public void Update()
     {
-        if(enemy.Target.Health.IsDeath())
+        if (enemy.Target == null)
         {
-            enemy.SetTarget(null);
+            enemy.stateMachine.ChangeState(StateId.Run);
         }
 
-        if(enemy.Target == null)
+        if (enemy.Target.Health.IsDeath())
         {
+            enemy.SetTarget(null);
             enemy.stateMachine.ChangeState(StateId.Run);
         }
 

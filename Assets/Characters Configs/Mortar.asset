@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 0.8
   Price: 60
-  Damage: 15
-  ChaseDistance: 10
-  AttackDistance: 10
+  Damage: 50
+  ChaseDistance: 9
+  AttackDistance: 9
   Avatar: {fileID: 0}

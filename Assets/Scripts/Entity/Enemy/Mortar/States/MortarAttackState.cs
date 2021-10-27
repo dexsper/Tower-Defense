@@ -10,11 +10,18 @@ public class MortarAttackState : State
     public void Enter(BaseEnemy e)
     {
         enemy = e as Mortar;
+        enemy.Health.OnDeath += TargetDeathHandle;
+    }
+
+    private void TargetDeathHandle()
+    {
+        enemy.SetTarget(null);
+        enemy.stateMachine.ChangeState(StateId.Run);
     }
 
     public void Exit()
     {
-       
+        enemy.Health.OnDeath -= TargetDeathHandle;
     }
 
     public StateId GetId()
@@ -30,19 +37,18 @@ public class MortarAttackState : State
             enemy.stateMachine.ChangeState(StateId.Run);
         }
 
-        if (enemy.Target.Health.IsDeath())
-        {
-            enemy.SetTarget(null);
-        }
         else if (Vector3.Distance(enemy.transform.position, enemy.Target.transform.position) > enemy.Config.AttackDistance)
         {
             enemy.SetTarget(null);
             enemy.stateMachine.ChangeState(StateId.Run);
         }
 
-        enemy.transform.LookAt(enemy.Target.transform);
+        Vector3 relativePos = enemy.Target.transform.position - enemy.transform.position;
+        Quaternion rotation = Quaternion.LookRotation(new Vector3(relativePos.x, 0f, relativePos.z));
 
-        if(enemy.canFire)
+        enemy.transform.rotation = rotation;
+
+        if (enemy.canFire)
         {
             launchProgress += enemy.ShotsPerSeconds * Time.deltaTime;
 
