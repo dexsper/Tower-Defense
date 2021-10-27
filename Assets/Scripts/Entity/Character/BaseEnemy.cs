@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(EnemySearch), typeof(AnimationEvent))]
+[RequireComponent(typeof(EnemySearch))]
 public abstract class BaseEnemy : Entity
 {
     [SerializeField]
@@ -23,8 +23,6 @@ public abstract class BaseEnemy : Entity
     protected Entity target;
 
     protected Animator anim;
-
-    public AnimationEvents animationEvents { get; protected set; }
 
     public EnemySearch Search { get; protected set; }
 
@@ -61,7 +59,13 @@ public abstract class BaseEnemy : Entity
         
         Search = GetComponent<EnemySearch>();
 
-        animationEvents = GetComponent<AnimationEvents>();
+        stateMachine = new StateMachine(this);
+        stateMachine.RegisterState(new CharacterIdleState());
+        stateMachine.RegisterState(new CharacterChaseState());
+        stateMachine.RegisterState(new CharacterRunState());
+        stateMachine.RegisterState(new CharacterAttackState());
+        stateMachine.RegisterState(new CharacterDeathState());
+        stateMachine.ChangeState(initialState);
     }
 
     public virtual void Init(Team team, Base enemyBase, LayerMask enemyLayer)
@@ -78,6 +82,23 @@ public abstract class BaseEnemy : Entity
     private void HandleDeath()
     {
         stateMachine.ChangeState(StateId.Death);
+    }
+
+    public virtual void OnAnimationIvent(string eventName)
+    {
+        switch(eventName)
+        {
+            case "Attack":
+                {
+                    target?.Health.Damage(config.Damage);
+                    break;
+                }
+            case "Death":
+                {
+                    Destroy(gameObject);
+                    break;
+                }
+        }
     }
 
     private void Update()
