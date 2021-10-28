@@ -8,7 +8,7 @@ public class MoneyUI : MonoBehaviour
 
     private void Awake()
     {
-        Base.OnMoneyChanged += UpdateText;
+        Economic.OnMoneyChanged += UpdateText;
     }
 
     private void UpdateText(Team team, int money)

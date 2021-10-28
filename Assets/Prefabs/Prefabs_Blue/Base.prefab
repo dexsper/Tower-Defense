@@ -82,11 +82,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 0
-  startMoney: 100
   spawnPoint: {fileID: 5156249751691750089}
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 128
+  enemyLayer: 7
 --- !u!65 &5156249753686868793
 BoxCollider:
   m_ObjectHideFlags: 0

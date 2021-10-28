@@ -27,9 +27,10 @@ public class EnemySpawner : MonoBehaviour
         Base ourBase = bases.Where(b => b.Team == team).First();
         Base enemyBase = bases.Where(b => b.Team != team).First();
 
-        if (ourBase.TakeMoney(e.Config.Price))
-        {
+        if (ourBase.Health.IsDeath() || enemyBase.Health.IsDeath()) return;
 
+        if (ourBase.Economic.TakeMoney(e.Config.Price))
+        {
             Vector3 spawnPosition = ourBase.SpawnPoint.position;
 
             BaseEnemy enemy = Instantiate(e, spawnPosition, Quaternion.identity);

@@ -16,6 +16,8 @@ public class Health : MonoBehaviour
 
     public event Action<float, float> OnHealthChanged = delegate { };
 
+    private bool isDeath = false;
+
     private void Awake()
     {
         if (maxHealth == 0)
@@ -26,16 +28,22 @@ public class Health : MonoBehaviour
 
     public virtual void Damage(float amount)
     {
+        if (isDeath) return;
+
         health -= amount;
 
         OnHealthChanged(health, maxHealth);
 
         if (health <= 0)
+        {
             OnDeath();
+            isDeath = true;
+            GetComponent<Entity>().enabled = false;
+        }
     }
 
     public virtual bool IsDeath()
     {
-        return health <= 0;
+        return isDeath;
     }
 }

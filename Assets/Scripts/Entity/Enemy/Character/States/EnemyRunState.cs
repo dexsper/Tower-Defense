@@ -46,7 +46,7 @@ class EnemyRunState : State
             enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, targetPos, enemy.Config.Speed * Time.deltaTime);
             enemy.transform.LookAt(enemy.EnemyBase.transform);
 
-            Entity target = enemy.Search.FindTarget(enemy.transform.position, enemy.Config.ChaseDistance, enemy.EnemyLayer);
+            Entity target = enemy.Search.FindTarget(enemy.transform.position, enemy.Config.ChaseDistance, 1 << enemy.EnemyLayer);
 
             if (target != null)
             {

@@ -8,52 +8,30 @@ public enum Team
     Blue,
     Red
 }
-
+[RequireComponent(typeof(Economic))]
 public class Base : Entity
 {
     [SerializeField]
     private Team team;
 
     [SerializeField]
-    private int startMoney = 100;
-
-    [SerializeField]
     private Transform spawnPoint;
 
     public Transform SpawnPoint => spawnPoint;
 
-    public int Money { get; protected set; } = 0;
     public Team Team => team;
 
     [SerializeField]
-    private LayerMask enemyLayer;
+    private int enemyLayer;
 
-    public LayerMask EnemyLayer => enemyLayer;
+    public int EnemyLayer => enemyLayer;
 
-    public static event Action<Team, int> OnMoneyChanged = delegate { };
+    public Economic Economic { get; protected set; }
 
     protected override void InitializeComponents()
     {
         base.InitializeComponents();
 
-        AddMoney(startMoney);
-    }
-
-    public void AddMoney(int amount)
-    {
-        Money += amount;
-        OnMoneyChanged(team, Money);
-    }
-
-    public bool TakeMoney(int amount)
-    {
-        if (Money >= amount)
-        {
-            Money -= amount;
-            OnMoneyChanged(team, Money);
-
-            return true;
-        }
-        else return false;
+        Economic = GetComponent<Economic>();
     }
 }

@@ -15,9 +15,6 @@ public abstract class BaseEnemy : Entity
     [SerializeField]
     protected Color attackZoneColor;
 
-    [SerializeField]
-    protected LayerMask enemyLayer = default(LayerMask);
-
     protected Base enemyBase;
 
     protected Entity target;
@@ -35,7 +32,7 @@ public abstract class BaseEnemy : Entity
     public StateMachine stateMachine { get; protected set; }
     public Team team { get; protected set; }
 
-    public LayerMask EnemyLayer => enemyLayer;
+    public int EnemyLayer { get; protected set; }
 
 
     public virtual bool HasTarget()
@@ -64,11 +61,11 @@ public abstract class BaseEnemy : Entity
         animationEvents = GetComponent<AnimationEvents>();
     }
 
-    public virtual void Init(Team team, Base enemyBase, LayerMask enemyLayer)
+    public virtual void Init(Team team, Base enemyBase, int enemyLayer)
     {
         this.team = team;
         this.enemyBase = enemyBase;
-        this.enemyLayer = enemyLayer;
+        this.EnemyLayer = enemyLayer;
 
         gameObject.layer = LayerMask.NameToLayer(team.ToString());
 

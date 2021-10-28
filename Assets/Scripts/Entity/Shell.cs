@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Shell : MonoBehaviour
 {
-	private Vector3 launchPoint, targetPoint, launchVelocity;
+	private Trajectory trajectory;
 
 	private bool initialized;
 
@@ -12,11 +12,9 @@ public class Shell : MonoBehaviour
 
 	private int layer;
 
-	public void Initialize(Vector3 launchPoint, Vector3 targetPoint, Vector3 launchVelocity, float damage, int layer)
+	public void Initialize(Trajectory trajectory, float damage, int layer)
 	{
-		this.launchPoint = launchPoint;
-		this.targetPoint = targetPoint;
-		this.launchVelocity = launchVelocity;
+		this.trajectory = trajectory;
 		this.layer = layer;
 		this.damage = damage;
 
@@ -30,10 +28,10 @@ public class Shell : MonoBehaviour
 		if (initialized)
 		{
 			age += Time.deltaTime;
-			Vector3 p = launchPoint + launchVelocity * age;
+			Vector3 p = trajectory.LaunchPoint + trajectory.Velocity * age;
 			p.y -= 0.5f * 9.81f * age * age;
 
-			Vector3 d = launchVelocity;
+			Vector3 d = trajectory.Velocity;
 			d.y -= 9.81f * age;
 			transform.localRotation = Quaternion.LookRotation(d);
 
