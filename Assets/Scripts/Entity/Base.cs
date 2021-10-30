@@ -15,9 +15,9 @@ public class Base : Entity
     private Team team;
 
     [SerializeField]
-    private Transform spawnPoint;
+    private Transform[] spawnPoints;
 
-    public Transform SpawnPoint => spawnPoint;
+    public Transform[] SpawnPoints => spawnPoints;
 
     public Team Team => team;
 
@@ -28,10 +28,14 @@ public class Base : Entity
 
     public Economic Economic { get; protected set; }
 
+    public static Dictionary<Team, Base> Bases = new Dictionary<Team, Base>();
+
     protected override void InitializeComponents()
     {
         base.InitializeComponents();
 
         Economic = GetComponent<Economic>();
+
+        Bases.Add(team, this);
     }
 }

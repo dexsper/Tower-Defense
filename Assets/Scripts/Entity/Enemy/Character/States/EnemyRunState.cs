@@ -48,7 +48,7 @@ class EnemyRunState : State
 
             Entity target = enemy.Search.FindTarget(enemy.transform.position, enemy.Config.ChaseDistance, 1 << enemy.EnemyLayer);
 
-            if (target != null)
+            if (target != null && !target.Health.IsDeath())
             {
                 enemy.SetTarget(target);
 

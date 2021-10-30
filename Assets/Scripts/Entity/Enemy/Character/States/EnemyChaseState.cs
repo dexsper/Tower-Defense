@@ -31,7 +31,7 @@ class EnemyChaseState : State
         {
             float distance = Vector3.Distance(enemy.transform.position, enemy.Target.transform.position);
 
-            if (distance < enemy.Config.AttackDistance)
+            if (distance < enemy.Config.AttackDistance + Random.Range(-1.5f, 1.5f))
             {
                 enemy.stateMachine.ChangeState(StateId.Attack);
             }

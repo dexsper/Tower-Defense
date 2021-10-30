@@ -13,6 +13,12 @@ public class Shop : MonoBehaviour
     [SerializeField]
     private ShopItem shopItemPrefab;
 
+    [SerializeField]
+    private Team userTeam = Team.Blue;
+
+    [SerializeField]
+    private Team botTeam = Team.Red;
+
     private void Awake()
     {
         if(enemies.Count > 0)
@@ -20,7 +26,7 @@ public class Shop : MonoBehaviour
             foreach(var enemy in enemies)
             {
                 var item = Instantiate(shopItemPrefab, content);
-                item.Init(enemy.Config.Price.ToString(), enemy.Config.Avatar, () => EnemySpawner.Singletion.Spawn(enemy, Team.Blue));
+                item.Init(enemy.Config.Price.ToString(), enemy.Config.Avatar, () => EnemySpawner.Singletion.Spawn(enemy, userTeam, botTeam));
             }
         }
     }

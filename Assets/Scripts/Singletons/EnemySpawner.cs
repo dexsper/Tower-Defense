@@ -10,9 +10,6 @@ public class EnemySpawner : MonoBehaviour
 
     private List<BaseEnemy> enemies = new List<BaseEnemy>();
 
-    [SerializeField]
-    private Base[] bases;
-
 
     private void Awake()
     {
@@ -22,20 +19,21 @@ public class EnemySpawner : MonoBehaviour
     }
 
 
-    public void Spawn(BaseEnemy e, Team team)
+    public void Spawn(BaseEnemy e, Team team, Team enemyTeam)
     {
-        Base ourBase = bases.Where(b => b.Team == team).First();
-        Base enemyBase = bases.Where(b => b.Team != team).First();
+        Base userBase = Base.Bases[team];
+        Base botBase = Base.Bases[enemyTeam];
 
-        if (ourBase.Health.IsDeath() || enemyBase.Health.IsDeath()) return;
+        if (userBase.Health.IsDeath() || botBase.Health.IsDeath()) return;
 
-        if (ourBase.Economic.TakeMoney(e.Config.Price))
+        if (userBase.Economic.TakeMoney(e.Config.Price))
         {
-            Vector3 spawnPosition = ourBase.SpawnPoint.position;
+            
+            Vector3 spawnPosition = userBase.SpawnPoints[Random.Range(0, userBase.SpawnPoints.Length)].position;
 
             BaseEnemy enemy = Instantiate(e, spawnPosition, Quaternion.identity);
 
-            enemy.Init(team, enemyBase, ourBase.EnemyLayer);
+            enemy.Init(team, botBase, userBase.EnemyLayer);
 
             enemies.Add(enemy);
         }

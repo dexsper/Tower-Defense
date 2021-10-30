@@ -6,9 +6,6 @@ using UnityEngine;
 public class TestBot : MonoBehaviour
 {
     [SerializeField]
-    private Team team;
-
-    [SerializeField]
     private List<BaseEnemy> enemies;
 
     [SerializeField]
@@ -23,7 +20,7 @@ public class TestBot : MonoBehaviour
     {
         foreach (var enemy in enemies)
         {
-            EnemySpawner.Singletion.Spawn(enemy, team);
+            EnemySpawner.Singletion.Spawn(enemy, Team.Red, Team.Blue);
             yield return new WaitForSeconds(delay);
         }
     }
