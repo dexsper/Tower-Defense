@@ -34,7 +34,13 @@ public class HealthBarsSystem : MonoBehaviour
 
     private void CreateHealthBar(Entity entity)
     {
-        if(!healthBars.ContainsKey(entity))
+        if (healthBarPrefab == null)
+            throw new NullReferenceException("Health bar prefab not found!");
+
+        if (healthBarsParent == null)
+            throw new NullReferenceException("Health bar parent not found!");
+
+        if (!healthBars.ContainsKey(entity))
         {
             var healthBar = Instantiate(healthBarPrefab, healthBarsParent);
             healthBars.Add(entity, healthBar);

@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-
+using System;
+using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -21,19 +22,24 @@ public class EnemySpawner : MonoBehaviour
 
     public void Spawn(BaseEnemy e, Team team, Team enemyTeam)
     {
-        Base userBase = Base.Bases[team];
-        Base botBase = Base.Bases[enemyTeam];
+        Base base1 = Base.Bases[team];
+        Base base2 = Base.Bases[enemyTeam];
 
-        if (userBase.Health.IsDeath() || botBase.Health.IsDeath()) return;
+        if (base1.Health.IsDeath() || base2.Health.IsDeath()) return;
 
-        if (userBase.Economic.TakeMoney(e.Config.Price))
+        if (base1.Economic == null) 
+            throw new MissingReferenceException("Base econimics not found!");
+
+        if (base1.SpawnPoints == null || base1.SpawnPoints.Length == 0)
+            throw new NullReferenceException("Spawn points doesn't exists!");
+
+        if (base1.Economic.TakeMoney(e.Config.Price))
         {
-            
-            Vector3 spawnPosition = userBase.SpawnPoints[Random.Range(0, userBase.SpawnPoints.Length)].position;
+            Vector3 spawnPosition = base1.SpawnPoints[Random.Range(0, base1.SpawnPoints.Length)].position;
 
             BaseEnemy enemy = Instantiate(e, spawnPosition, Quaternion.identity);
 
-            enemy.Init(team, botBase, userBase.EnemyLayer);
+            enemy.Init(team, base2, base1.EnemyLayer);
 
             enemies.Add(enemy);
         }

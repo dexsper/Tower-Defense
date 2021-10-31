@@ -21,7 +21,7 @@ public class Shop : MonoBehaviour
 
     private void Awake()
     {
-        if(enemies.Count > 0)
+        if(enemies.Count > 0 && content && shopItemPrefab)
         {
             foreach(var enemy in enemies)
             {

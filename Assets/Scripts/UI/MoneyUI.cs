@@ -6,6 +6,9 @@ public class MoneyUI : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI moneyText;
 
+    [SerializeField]
+    private Team team;
+
     private void Awake()
     {
         Economic.OnMoneyChanged += UpdateText;
@@ -13,7 +16,7 @@ public class MoneyUI : MonoBehaviour
 
     private void UpdateText(Team team, int money)
     {
-        if (team == Team.Blue)
+        if (this.team == team)
             moneyText.text = money.ToString();
     }
 }

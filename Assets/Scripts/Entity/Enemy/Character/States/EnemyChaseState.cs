@@ -23,33 +23,28 @@ class EnemyChaseState : State
 
     public void Update()
     {
-        if(enemy.Target == null)
+        if (enemy.Target == null)
         {
             enemy.stateMachine.ChangeState(StateId.Run);
         }
-        else
+
+        float distance = Vector3.Distance(enemy.transform.position, enemy.Target.transform.position);
+
+        if (distance < enemy.Config.AttackDistance + Random.Range(-2f, 2f))
         {
-            float distance = Vector3.Distance(enemy.transform.position, enemy.Target.transform.position);
+            enemy.stateMachine.ChangeState(StateId.Attack);
+        }
 
-            if (distance < enemy.Config.AttackDistance + Random.Range(-1.5f, 1.5f))
-            {
-                enemy.stateMachine.ChangeState(StateId.Attack);
-            }
-            else 
-            {
-                if(distance > enemy.Config.ChaseDistance)
-                {
-                    enemy.SetTarget(null);
-                    enemy.stateMachine.ChangeState(StateId.Run);
-                    return;
-                }
-
-                if (enemy.Target)
-                {
-                    enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, enemy.Target.transform.position, enemy.Config.Speed * Time.deltaTime);
-                    enemy.transform.LookAt(enemy.Target.transform);
-                }
-            }
+        if (distance > enemy.Config.ChaseDistance)
+        {
+            enemy.SetTarget(null);
+            enemy.stateMachine.ChangeState(StateId.Run);
+            return;
+        }
+        else if (enemy.Target)
+        {
+            enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, enemy.Target.transform.position, enemy.Config.Speed * Time.deltaTime);
+            enemy.transform.LookAt(enemy.Target.transform);
         }
     }
 }

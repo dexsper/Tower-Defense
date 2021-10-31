@@ -13,6 +13,11 @@ public class TestBot : MonoBehaviour
 
     private void Start()
     {
+        if(enemies == null || enemies.Count == 0)
+        {
+            throw new NullReferenceException("There is no list of enemies for the bot!");
+        }
+
         StartCoroutine(TestSpawn());
     }
 

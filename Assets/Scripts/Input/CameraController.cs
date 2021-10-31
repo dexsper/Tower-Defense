@@ -12,14 +12,15 @@ public class CameraController : MonoBehaviour
     private float dist;
         
     private Vector3 offset;
-    
 
-    void Start()
+    float x;
+
+    private void Start()
     {
         dist = transform.position.z;
     }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -28,11 +29,13 @@ public class CameraController : MonoBehaviour
         }
         else if (Input.GetMouseButton(0))
         {
-            Vector3 position = transform.position - (MouseToWorld() - offset);
-            position.x = Mathf.Clamp(position.x, horizontalLimit.x, horizontalLimit.y);
-
-            transform.position = Vector3.Lerp(transform.position, position, smothness);
+            x = (transform.position - (MouseToWorld() - offset)).x;
         }
+
+        Vector3 newPos = transform.position;
+        newPos.x = Mathf.Clamp(x, horizontalLimit.x, horizontalLimit.y);
+
+        transform.position = Vector3.Lerp(transform.position, newPos, smothness);
     }
 
     private Vector3 MouseToWorld()
